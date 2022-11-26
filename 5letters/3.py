@@ -74,3 +74,4 @@ for i in range(tryes):
         print('Вы не угадали, попробуйте еще раз.')
 else:
     print(f'Вы не угадали за {tryes} попыток:(')
+    print(f'Было загадано слово: {word}.')
