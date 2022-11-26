@@ -44,8 +44,9 @@ word = input('Загадайте слово: ')
 wordCount = len(word)
 tryes = 10 
 word = word.upper()
+
 print('\n' * 20)
-print('Вам нужно угадать слово.')
+print(f'Вам нужно угадать слово из {wordCount} букв.')
 print('\'!\' - буква на своем месте.')
 print('\'+\' - буква есть в слове, но в другом месте.')
 print('\'-\' - буквы нет в слове.')
@@ -54,9 +55,12 @@ print('Удачи!')
 
 for i in range(tryes):
     
+    cnt = ''
     while True:
-        answer = input(f'Осталось {tryes - i} попыток. Введите слово из {wordCount} букв: ')
-        if wordCount == len(answer):
+        answer = input(f'Осталось {tryes - i} попыток. Введите слово{cnt}: ')
+        if wordCount != len(answer):
+            cnt = f' из {wordCount} букв'
+        else:
             break
     
     answer = answer.upper()
