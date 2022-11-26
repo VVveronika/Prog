@@ -60,5 +60,7 @@ for i in range(tryes):
     if word == answer:
         print('Вы угадали!')
         break
+    else:
+        print('Вы не угадали, попробуйте еще раз.')
 else:
     print(f'Вы не угадали за {tryes} попыток:(')
