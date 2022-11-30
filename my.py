@@ -5,7 +5,7 @@
 '''
 a =  [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]
 
-for i in range(len(a)-1, 0, -1):
+for i in range(len(a)-1, -1, -1):
     if a[i] == ():
         del (a[i])
 print(a)
