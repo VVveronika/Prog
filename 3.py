@@ -45,7 +45,7 @@ wordCount = len(word)
 tryes = 10 
 word = word.upper()
 print('\n' * 20)
-
+useLetters = []
 for i in range(tryes):
     
     while True:
@@ -55,7 +55,8 @@ for i in range(tryes):
     
     answer = answer.upper()
     res = wordCompare(word, answer)
-    print(answer, res, sep = '\n')
+    useLetters.append(answer)
+    print(answer, res, f'Вы использовали буквы {useLetters}', sep = '\n')
 
     if word == answer:
         print('Вы угадали!')
