@@ -28,6 +28,8 @@ class Snake_element:
 
 class Snake:
     def __init__(self, lenght, start_x, start_y):
+        self.d_x = 20
+        self.d_y = 0
         x = start_x
         y = start_y
         self.lenght = lenght
@@ -41,12 +43,14 @@ class Snake:
          for i in self.body:
             i.draw()
 
-    def move(self, d_x = 0, d_y = 0):
-        for i in self.body:
-            i.move(d_x, d_y)
 
-def move_right(event):
-    b.move(20)
+    def move(self):
+        for i in self.body:
+            i.move(self.d_x, self.d_y)
+
+def up(event):
+    b.d_x = 0
+    b.d_y -= 20
 
 def for_closing():
     if messagebox.askokcancel(title = 'Выход', message='Вы хотите закрыть приложение?'):
@@ -70,6 +74,10 @@ def move(event):
         size_x, size_y = size(id)
         canvas.coords(id, x-size_x, y-size_y, x+size_x, y+size_y)
 
+def main():
+    b.move()
+    root.after(1000, main)
+
 root = Tk()
 
 root.title('Точки')
@@ -82,7 +90,7 @@ canvas.pack()
 
 canvas.bind('<B1-Motion>', move)
 
-canvas.bind('<Button-1>', move_right)
+root.bind('<Up>', up)
 
 root.protocol('WM_DELETE_WINDOW', for_closing)
 
@@ -91,5 +99,6 @@ canvas.focus()
 b = Snake(10, 200, 200)
 b.draw()
 
+main()
 
 root.mainloop()
