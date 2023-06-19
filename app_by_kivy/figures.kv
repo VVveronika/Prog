@@ -1,0 +1,36 @@
+<Ellipse>:
+    canvas:
+        Color: 
+            rgba: .82, .45, .77, 1
+        Line:
+            width: 2.
+            ellipse: (self.x, self.y, self.width, self.height)
+    Label:
+        center: root.center
+        text: 'Овал'
+        color: .4, .5, .6, 1
+
+<Circle>:
+    canvas:
+        Color: 
+            rgba: .99, .25, .79, 1
+        Line:
+            width: 2.
+            circle: (self.center_x, self.center_y, min(self.width, self.height)/2)
+    Label:
+        center: root.center
+        text: 'Круг'
+        color: .4, .5, .6, 1    
+
+<Rectangle>:
+    canvas:
+        Color: 
+            rgba: .9, .4, .7, 1
+        Line:
+            width: 2.
+            rectangle: (self.x, self.y, self.width, self.height)
+    Label:
+        center: root.center
+        text: 'Квадрат'
+        color: .4, .5, .6, 1
+           
