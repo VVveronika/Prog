@@ -1,5 +1,8 @@
-a, b = int(input()), int(input())
+d = input().split(' ')
+a = abs(int(d[0]))
+b = abs(int(d[1]))
 x = 0
+
 while a != b:
     if b > a:
         b = b - a
@@ -7,4 +10,5 @@ while a != b:
     else:
         a = a - b
         x = x + 1
+
 print(x)
