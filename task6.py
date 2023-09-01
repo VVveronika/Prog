@@ -1,26 +1,23 @@
-class Rectangle():
+(x1_1, y1_1, x2_1, y2_1) = tuple(list(map(int, input().split(' '))))
+(x1_2, y1_2, x2_2, y2_2) = tuple(list(map(int, input().split(' '))))
+(x1_3, y1_3, x2_3, y2_3) = tuple(list(map(int, input().split(' '))))
+(x1_4, y1_4, x2_4, y2_4) = tuple(list(map(int, input().split(' '))))
 
-    def __init__(self, x1, y1, x2, y2):
-        self.x1 = x1
-        self.y1 = y1
-        self.x2 = x2
-        self.y2 = y2
+min_x = min(x1_1, x1_2, x1_3, x1_4)
+max_x = max(x2_1, x2_2, x2_3, x2_4)
+min_y = min(y1_1, y1_2, y1_3, y1_4)
+max_y = max(y2_1, y2_2, y2_3, y2_4)
 
-rectangles = []
+space = 0
 
-for i in range(4):
-    c = map(int, input().split(' '))
-    rect = Rectangle(*c)
-    rectangles.append(rect)
+for y in range(min_y, max_y + 1):
 
-floor = set()
+    for x in range(min_x, max_x + 1):
 
-for rect in rectangles:
+        if x1_1 <= x < x2_1 and y1_1 <= y < y2_1\
+            or x1_2 <= x < x2_2 and y1_2 <= y < y2_2\
+            or x1_3 <= x < x2_3 and y1_3 <= y < y2_3\
+            or x1_4 <= x < x2_4 and y1_4 <= y < y2_4:
+            space += 1
 
-    for y in range(rect.y1, rect.y2):
-        
-        for x in range(rect.x1, rect.x2):
-            key = x * 2001 + y
-            floor.add(key)
-
-print(len(floor))
+print(space)
