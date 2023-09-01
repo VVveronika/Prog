@@ -14,10 +14,10 @@ for y in range(min_y, max_y + 1):
 
     for x in range(min_x, max_x + 1):
 
-        if x1_1 <= x < x2_1 and y1_1 <= y < y2_1\
-            or x1_2 <= x < x2_2 and y1_2 <= y < y2_2\
-            or x1_3 <= x < x2_3 and y1_3 <= y < y2_3\
-            or x1_4 <= x < x2_4 and y1_4 <= y < y2_4:
+        if (x1_1 <= x < x2_1 and y1_1 <= y < y2_1)\
+            or (x1_2 <= x < x2_2 and y1_2 <= y < y2_2)\
+            or (x1_3 <= x < x2_3 and y1_3 <= y < y2_3)\
+            or (x1_4 <= x < x2_4 and y1_4 <= y < y2_4):
             space += 1
 
 print(space)
