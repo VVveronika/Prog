@@ -1,19 +1,21 @@
-a = input().split(' ')
-n = int(a[0])
-m = int(a[1])
-massiv = []
-x = 0
+n, m = map(int, input().split(' '))
 
-for i in range(0, n):
-    b = input().split(' ')
-    t = int(b[0])
-    d = int(b[1])
-    c = int(b[2])
-    massiv.append(abs((t) + (d) + (c)))
+summs = []
+cakes = []
+coefficients = [[1, 1, 1], [1, 1, -1], [1, -1, 1], [1, -1, -1],\
+            [-1, 1, 1], [-1, 1, -1], [-1, -1, -1], [-1, -1, 1]]    
 
-massiv.sort(reverse=True)
+for i in range(n):
+    cakes.append(list(map(int, input().split(' '))))
+    
+for coefficient in coefficients:
 
-for j in range(0, m):
-    x += massiv[j]
+    variant = []
+    for cake in cakes:
+        variant.append(cake[0] * coefficient[0] + cake[1] * coefficient[1] + cake[2] * coefficient[2])
+    
+    variant.sort(reverse=True)
+    summ = sum(variant[:m])
+    summs.append(summ)
 
-print(x)
+print(max(summs))
